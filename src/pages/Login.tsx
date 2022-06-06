@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { editFirstState as editFirstStateAction } from '../redux/actions';
 import { AppDispatch, RootState } from '../redux/store';
 
 function Login(props: any) {
   const [email, setEmail] = useState<string>('');
+  const navigate = useNavigate();
 
   function saveAndRedirect() {
     const { editFirstState } = props;
-    const { history } = props;
 
     editFirstState(email);
 
-    history.push('/example');
+    navigate('/example');
   }
 
   const { firstState } = props;

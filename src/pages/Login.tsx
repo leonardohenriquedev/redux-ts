@@ -5,18 +5,13 @@ import { editFirstState as editFirstStateAction } from '../redux/actions';
 import { AppDispatch, RootState } from '../redux/store';
 
 function Login(props: any) {
-  const [email, setEmail] = useState<string>('');
   const navigate = useNavigate();
 
   function saveAndRedirect() {
-    const { editFirstState } = props;
-
-    editFirstState(email);
-
     navigate('/example');
   }
 
-  const { firstState } = props;
+  const { editFirstState, firstState } = props;
 
   return (
     <div className="login-page">
@@ -24,11 +19,10 @@ function Login(props: any) {
         type="email"
         data-testid="email-input"
         placeholder="Texto"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={firstState}
+        onChange={(e) => editFirstState(e.target.value)}
       />
-      <button onClick={saveAndRedirect}>Enviar para estado global</button>
-      <p>Estado sendo renderizado do Redux: {firstState}</p>
+      <button onClick={saveAndRedirect}>Ir para outra rota</button>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { RootState } from '../redux/store';
 function Login(props: any) {
   const { firstState } = props;
 
-  return <p>Estado sendo renderizado do Redux: {firstState}</p>;
+  return <p>Texto sendo renderizado pelo estado global do Redux: {firstState}</p>;
 }
 
 const mapStateToProps = (state: RootState) => ({
